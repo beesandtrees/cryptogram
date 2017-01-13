@@ -4,21 +4,6 @@ import Riddle from './components/riddle';
 
 import {riddles} from './helpers/riddles';
 import {authors} from './helpers/authors';
-import {alphabet} from './helpers/alphabet';
-
-class Alphabet extends Component {
-  render() {
-    if(this.props.play === false) {
-      return <div />
-    }
-    return <div className="with">
-        <h2>Replace Selected With:</h2>
-        {alphabet.map((letter, i) => (
-            <span key={letter}>{letter}</span>
-        ))}
-      </div>
-    }
-}
 
 class App extends Component {
   constructor(props) {
@@ -106,8 +91,7 @@ class App extends Component {
             <li key={i} onClick={() => this.selectAuthor({author})}>{author}</li>
         ))}
       </ul>
-      <Riddle riddle={this.state.riddle} />
-      <Alphabet play={this.state.play} />
+      <Riddle riddle={this.state.riddle} play={this.state.play} />
     </div>;
   }
 }
