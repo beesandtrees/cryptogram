@@ -57,7 +57,7 @@ class App extends Component {
       var firstName = full.join(" ");
       var fullName = firstName + " " + lastName;
       var combo = "Author - " + fullName;
-      this.setState({authorLookup: lastName});
+      this.setState({authorLookup: fullName});
       this.setState({authorName: combo});
       this.setState({authors: []});
       this.setState({play: true});
@@ -74,24 +74,23 @@ class App extends Component {
     }
   }
 
-  resetLetter() {
-
-  }
-
   resetApplication() {
     this.alphabetizeAuthors();
     this.setState({play: false});
+    this.setState({authorLookup: ''});
+    this.setState({riddle: ''});
   }
 
   render() {
     return <div>
       <h1>{this.state.authorName}</h1>
+      <button onClick={() => this.resetApplication()} className="reset">RESET</button>
       <ul className="authors">
         {this.state.authors.map((author, i) => (
             <li key={i} onClick={() => this.selectAuthor({author})}>{author}</li>
         ))}
       </ul>
-      <Riddle riddle={this.state.riddle} play={this.state.play} />
+      <Riddle riddle={this.state.riddle} author={this.state.authorLookup} play={this.state.play} />
     </div>;
   }
 }

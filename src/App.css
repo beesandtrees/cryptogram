@@ -9,10 +9,12 @@ body {
 }
 h1 {
     font-size: 2rem;
+    font-weight: lighter;
     margin: 0 0 2rem;
 }
 h2 {
     font-size: 1.75rem;
+    font-weight: lighter;
     margin: 1rem 0 1rem;
 }
 .authors {
@@ -57,14 +59,19 @@ p {
 .riddle {
   background: #ff6464;
   padding: 0.5rem 2rem 2rem;
+  transition: background 0.25s;
+}
+.riddle h2 {
+  color: white;
 }
 .riddle .word {
     background: #f9f9f9;
     display: inline-block;
-    margin: 0 24px 0 0;
+    margin: 0 24px 12px 0;
 }
 .riddle span {
     background: #ececf5;
+    border-radius: 4px;
     color: #babac3;
     cursor: pointer;
     display: inline-block;
@@ -85,4 +92,11 @@ p {
 .riddle .switched {
     background: #f9f9f9;
     color: #ff6464;
+    transition: color 0.25s;
+}
+.solved {
+  background: rgb(10,200,80);
+}
+.solved .switched {
+  color: green;
 }

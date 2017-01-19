@@ -1,4 +1,4 @@
-export const riddles = [{
+export const chapters = [{
     author: 'Benjamin Franklin',
     riddle: 'Early to bed and early to rise makes a man healthy wealthy and wise'
 }, {

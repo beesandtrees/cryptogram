@@ -1,1 +1,1 @@
-export const authors = ['Benjamin Franklin', 'Thomas Jefferson'];
+export const authors = ['Melissa McMurtrie', 'Thomas Jefferson', 'Benjamin Franklin'];
