@@ -1,4 +1,5 @@
 html, body {
+    font-size: 10px;
     height: 100%;
 }
 body {
@@ -17,6 +18,21 @@ h2 {
     font-weight: lighter;
     margin: 1rem 0 1rem;
 }
+.reset {
+    background: #ea17b3;
+    border: 0;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    font-size: 1.6rem;
+    padding: 0.6rem 1.4rem;
+    position: absolute;
+    right: 2.6rem;
+    top: 1rem;
+}
+.reset:hover {
+    background: #aa17b3;
+}
 .authors {
     display: block;
     display: -webkit-box;
@@ -28,12 +44,16 @@ h2 {
     flex-direction: column;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    font-size: 1rem;
-    width: calc(100% - 4rem);
+    font-size: 14px;
+    list-style-type: none;
+    height: 100vh;
+    padding: 0;
+    width: 90%;
 }
 .authors li {
     line-height: 1.4;
-    margin: 0 1em 1em 0;
+    margin: 0 0 10px 0;
+    width: 18%;
 }
 .authors li:hover {
     color: #ea17b3;
@@ -41,6 +61,16 @@ h2 {
 }
 .authors span {
     display: block;
+}
+.with {
+    position: fixed;
+    width: 100%;
+    height: 120px;
+    background: white;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid black;
+    padding: 0 3rem;
 }
 .with span {
     cursor: pointer;
@@ -57,46 +87,73 @@ p {
     text-decoration: line-through;
 }
 .riddle {
-  background: #ff6464;
-  padding: 0.5rem 2rem 2rem;
-  transition: background 0.25s;
+  border: 1px solid rgb(255, 100, 100);
+    margin-bottom: 160px;
+    padding: 0.5rem 2rem 2rem;
+    transition: background 0.25s;
 }
 .riddle h2 {
-  color: white;
+    color: rgb(255, 100, 100);
+    margin-bottom: 2rem;
+}
+.riddle h2.author {
+  margin-bottom: 0;
+  margin-top: 2rem;
 }
 .riddle .word {
-    background: #f9f9f9;
     display: inline-block;
-    margin: 0 24px 12px 0;
+    margin: 0 2rem 1rem 0;
 }
 .riddle span {
-    background: #ececf5;
-    border-radius: 4px;
-    color: #babac3;
+    background: rgb(255, 100, 100);
+    border-color: rgba(255, 100, 100, 0.5);
+    border-width: 1px;
+    border-style: solid;
+    border-right-width: 0;
+    color: white;
     cursor: pointer;
     display: inline-block;
-    font-size: 2rem;
-    width: 36px;
-    height: 36px;
+    font-size: 1.2rem;
+    height: 2.4rem;
+    line-height: 2.4rem;
+    margin: 0;
     text-align: center;
-    margin: 6px;
     text-transform: uppercase;
+    width: 1.8rem;
 }
-.riddle .switched {
-    background: transparent;
+.riddle .punctuation {
+  background: white;
+  border-color: transparent;
+  color: black;
+  width: auto;
+}
+.riddle span:last-child {
+  border-right-width: 1px;
 }
 .riddle .selected {
     background: yellow;
     color: black;
 }
 .riddle .switched {
-    background: #f9f9f9;
-    color: #ff6464;
+    background: transparent;
+    color: black;
     transition: color 0.25s;
 }
 .solved {
-  background: rgb(10,200,80);
+      /*background-color: rgba(10, 200, 60, 0.15);*/
+    border-color: rgb(10, 200, 80);
+}
+.solved .phrase {
+  display: block;
+}
+.riddle .word {
+    margin: 0 1rem 1rem 0;
 }
 .solved .switched {
-  color: green;
+  background: white;
+  border-color: white;
+  width: auto;
+}
+.solved h2 {
+    color: green;
 }

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 
 import Riddle from './components/riddle';
+import AuthorList from './components/authors';
 
-import {riddles} from './helpers/riddles';
+// import {riddles} from './helpers/riddles';
 import {authors} from './helpers/authors';
 
 class App extends Component {
@@ -11,6 +13,7 @@ class App extends Component {
     this.state = {
       play: false,
       authors: [],
+      authorsClassList: ['authors'],
       authorName: 'Choose Author',
       authorLookup: '',
       riddle: ''
@@ -66,18 +69,35 @@ class App extends Component {
   }
 
   selectQuote(author) {
-    for(var x = 0; x < riddles.length; x++) {
-      if(riddles[x].author === author) {
-        this.setState({riddle: riddles[x].riddle});
-        return;
+    // for(var x = 0; x < riddles.length; x++) {
+    //   if(riddles[x].author === author) {
+    //     this.setState({riddle: riddles[x].riddle});
+    //     return;
+    //   }
+    // }
+    var _this = this;
+    $.ajax({
+      url: 'https://thundercomb-poetry-db-v1.p.mashape.com/author/' + author,
+      type: 'GET', // The HTTP Method, can be GET POST PUT DELETE etc
+      data: {}, // Additional parameters here
+      dataType: 'json',
+      success: function(data) {
+        _this.setState({riddle: data[Math.ceil(Math.random()*data.length-1)]});
+      },
+      error: function(err) {
+        console.log(err.message);
+      },
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader("X-Mashape-Authorization", "ZqlZVIAPaEmsheL720EWgG23NjVap1n1cdJjsnYkpYU6POqo45"); // Enter here your Mashape key
       }
-    }
+    });
   }
 
   resetApplication() {
     this.alphabetizeAuthors();
     this.setState({play: false});
     this.setState({authorLookup: ''});
+    this.setState({authorName: 'Choose Author'});
     this.setState({riddle: ''});
   }
 
@@ -85,11 +105,7 @@ class App extends Component {
     return <div>
       <h1>{this.state.authorName}</h1>
       <button onClick={() => this.resetApplication()} className="reset">RESET</button>
-      <ul className="authors">
-        {this.state.authors.map((author, i) => (
-            <li key={i} onClick={() => this.selectAuthor({author})}>{author}</li>
-        ))}
-      </ul>
+      <AuthorList authors={this.state.authors} selectAuthor={(author) => this.selectAuthor(author)} />
       <Riddle riddle={this.state.riddle} author={this.state.authorLookup} play={this.state.play} />
     </div>;
   }

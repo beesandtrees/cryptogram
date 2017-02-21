@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import {alphabet} from '../helpers/alphabet';
 
+// TODO Add Hints Button
+// TODO reveal title as a hint?
+
 class Riddle extends Component {
   constructor(props) {
     super(props);
@@ -12,10 +15,12 @@ class Riddle extends Component {
   }
 
   componentDidUpdate() {
-    if(this.props.riddle !== this.state.vanillaRiddle) {
-      this.renderRiddle();
-      this.setState({vanillaRiddle: this.props.riddle});
-      this.setState({sortedAlpha: this.shuffleAlphabet()});
+    if(this.props.riddle !== ""){
+      if(this.props.riddle.lines.join(" ") !== this.state.vanillaRiddle) {
+        this.renderRiddle();
+        this.setState({vanillaRiddle: this.props.riddle.lines.join(" ")});
+        this.setState({sortedAlpha: this.shuffleAlphabet()});
+      }
     }
   }
 
@@ -47,7 +52,6 @@ class Riddle extends Component {
         sameLength = allSame.length,
         replacementLetter = '',
         allSelected = document.getElementsByClassName("selected");
-
 
     if(allSame[0].classList.contains("switched")) {
       replacementLetter = allSame[0].dataset.letter
@@ -117,43 +121,63 @@ class Riddle extends Component {
     }
     // Set up check to see if riddle has been solved
     // this.props.riddle === this.state.vanillaRiddle
+    // .replace(/['—’"?.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
     if(this.state.vanillaRiddle.split(" ").join("").toLowerCase() === encryptedRiddle) {
       document.getElementsByClassName("riddle")[0].classList.add("solved");
     }
   }
 
   splitRiddle(encrypted) {
-    let splitEncrypted = encrypted.toLowerCase().split(" ");
     let riddleHTML = [];
     // loop through words
-    for(var x = 0; x < splitEncrypted.length; x++) {
-      let doubledip = splitEncrypted[x].split("");
-      let newWord = [];
+    for(let x = 0; x < encrypted.length; x++) {
+      let doubledip = encrypted[x].toLowerCase().split(" ");
+      let newPhrase = [];
+
       // loop through letters and render them into spans
-      for(var y = 0; y < doubledip.length; y++) {
+      for(let y = 0; y < doubledip.length; y++) {
         let current = doubledip[y];
-        newWord.push(<span onClick={() => this.selectLetter(current)} key={y} data-letter={current} className={current}>{current}</span>);
+        let newWord = [];
+        for(let nw = 0; nw < current.length; nw++) {
+          let isPunctuation = alphabet.indexOf(current[nw].toUpperCase());
+          let newLetter = '';
+          if(isPunctuation >= 0) {
+            newLetter = <span onClick={() => this.selectLetter(current[nw])} key={nw} data-letter={current[nw]} className={current[nw]}>{current[nw]}</span>;
+          } else {
+            newLetter = <span onClick={() => this.selectLetter(current[nw])} key={nw} data-letter={current[nw]} className="punctuation">{current[nw]}</span>;
+          }
+          newWord.push(newLetter);
+        }
+        newPhrase.push(<div key={y} className="word">{newWord}</div>);
       }
-      // insert the spans into words
-      riddleHTML.push(<div key={x} className="word">{newWord}</div>);
+      // insert the words into phrases
+      riddleHTML.push(<div key={x*37} className="phrase">{newPhrase}</div>);
     }
     this.setState({riddle: riddleHTML});
   }
 
   encryptRiddle() {
-    let splitEncrypted = this.props.riddle.toLowerCase().split("");
     let encrypted = [];
-    // loop through the letters and replace them with new ones
-    for(var x = 0; x < splitEncrypted.length; x++) {
-      let letterIndex = alphabet.indexOf(splitEncrypted[x].toUpperCase());
-      if(letterIndex >= 0) {
-        encrypted.push(this.state.sortedAlpha[letterIndex]);
-      } else {
-        encrypted.push(" ");
-      }
-    }
-    let encryptedRiddle = encrypted.join("");
 
+    for(var l = 0; l < this.props.riddle.lines.length; l++) {
+      let whatsMyLine = this.props.riddle.lines[l];
+      let encryptedLine = [];
+
+      let splitEncrypted = whatsMyLine.toLowerCase().split("");
+
+      // loop through the letters and replace them with new ones
+      for(var x = 0; x < splitEncrypted.length; x++) {
+        let letterIndex = alphabet.indexOf(splitEncrypted[x].toUpperCase());
+        if(letterIndex >= 0) {
+          encryptedLine.push(this.state.sortedAlpha[letterIndex]);
+        } else {
+          encryptedLine.push(splitEncrypted[x]);
+        }
+      }
+      encrypted.push(encryptedLine.join(""));
+    }
+
+    let encryptedRiddle = encrypted;
     return encryptedRiddle;
   }
 
@@ -172,7 +196,7 @@ class Riddle extends Component {
         <div className="riddle">
           <h2>Decrypt Quote Section</h2>
           {this.state.riddle}
-          <h2>&mdash; {this.props.author}</h2>
+          <h2 className="author">&mdash; {this.props.author}</h2>
         </div>
         <div className="with">
           <h2>Replace Selected With:</h2>
