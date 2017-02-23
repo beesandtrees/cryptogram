@@ -91,6 +91,14 @@ class Riddle extends Component {
     return encryptedRiddle;
   }
 
+  resetClasses() {
+    let allLetters = document.getElementsByClassName("letter");
+    for (let i = 0; i < allLetters.length; i++) {
+        let trueLetter = allLetters[i].innerHTML;
+        console.log(trueLetter);
+    }    
+  }
+
   replaceLetter(letter, removeStrike) {
     // find the replacement letter element
     let matches = document.querySelectorAll("[data-replace='" + letter.toUpperCase() + "']");
@@ -124,6 +132,7 @@ class Riddle extends Component {
     // .replace(/['—’"?.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
     if(this.state.vanillaRiddle.split(" ").join("").toLowerCase() === encryptedRiddle) {
       document.getElementsByClassName("riddle")[0].classList.add("solved");
+      this.resetClasses();
     }
   }
 

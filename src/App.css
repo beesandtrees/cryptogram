@@ -34,7 +34,7 @@ h2 {
     font-size: 1.4rem;
     opacity: 0;
     padding: 0.2rem 1rem;
-    position: absolute;
+    position: fixed;
     right: 1rem;
     top: 1rem;
     transition: all 0.33s;
@@ -85,7 +85,7 @@ h2 {
     display: inline-block;
     font-family: monospace;
     font-size: 2.2rem;
-    padding: 0 1rem 1rem 0;
+    padding: 0 2rem 1rem 0;
     text-align: center;
 }
 p {
@@ -109,30 +109,31 @@ p {
 }
 .riddle .word {
     display: inline-block;
-    margin: 0 2rem 1.4rem 0;
+    margin: 0 2.4rem 1.4rem 0;
 }
 .riddle span {
-    background: rgba(214, 44, 111, 0.15);
-    border-color: rgba(214, 44, 111, 0.15);
+    background: rgba(0, 0, 0, 0.075);
+    border-color: rgba(0, 0, 0, 0.15);
     border-width: 1px;
     border-style: solid;
-    border-right-width: 0;
     color: #333;
     cursor: pointer;
     display: inline-block;
-    font-size: 1.2rem;
-    height: 2rem;
-    line-height: 2rem;
+    font-size: 1.6rem;
+    height: 3.2rem;
+    line-height: 1.9;
     margin: 0;
+    min-width: 3.2rem;
     text-align: center;
     text-transform: uppercase;
-    transition: all 0.5s;
-    width: 1.6rem;
+    transition: all 0.66s;
+    width: auto;
 }
 .riddle .punctuation {
     background: white;
     border-color: transparent;
     color: black;
+    min-width: 1px;
     width: auto;
 }
 .riddle span:last-child {
@@ -147,10 +148,10 @@ p {
 .riddle .switched {
     background: transparent;
     border-color: transparent;
+    border-bottom: 1px solid black;
     color: black;
 }
 .solved {
-    /*background-color: rgba(10, 200, 60, 0.15);*/
     border-color: white;
     padding: 0;
 }
@@ -170,7 +171,7 @@ p {
 .solved .switched {
     background: white;
     border-color: white;
-    width: auto;
+    min-width: 1px;
 }
 .solved h2 {
     color: green;
