@@ -1,60 +1,52 @@
 * {
     box-sizing: border-box;
 }
-
-html,
-body {
+html, body {
     font-size: 10px;
     height: 100%;
 }
-
 body {
     font-family: sans-serif;
 }
-
 .main {
-    padding: 2rem;
+    padding: 2rem 1rem;
     transition: all 0.33s;
 }
-
 .main.active {
-    padding: 10rem 2rem 2rem;
+    padding: 16rem 1rem 2rem;
 }
-
 h1 {
     font-size: 2rem;
     font-weight: lighter;
     margin: 0 0 2rem;
 }
-
 h2 {
     font-size: 1.75rem;
     font-weight: lighter;
     margin: 1rem 0 1rem;
 }
-
 .reset {
     background: #ea17b3;
     border: 0;
     border-radius: 3px;
     color: white;
     cursor: pointer;
-    font-size: 1.6rem;
-    padding: 0.6rem 1.4rem;
+    font-size: 1.4rem;
+    opacity: 0;
+    padding: 0.2rem 1rem;
     position: absolute;
-    right: 2.6rem;
+    right: 1rem;
     top: 1rem;
     transition: all 0.33s;
 }
-
 .active .reset {
-    top: 10rem;
+    opacity: 1;
+    top: 1rem;
+    z-index: 2;
 }
-
 .reset:hover {
     background: #aa17b3;
 }
-
 .authors {
     font-size: 14px;
     list-style-type: none;
@@ -62,7 +54,6 @@ h2 {
     width: 100%;
     column-width: 200px;
 }
-
 .authors li {
     display: inline-block;
     line-height: 1.4;
@@ -70,16 +61,13 @@ h2 {
     vertical-align: top;
     width: 100%;
 }
-
 .authors li:hover {
     color: #ea17b3;
     cursor: pointer;
 }
-
 .authors span {
     display: block;
 }
-
 .with {
     position: fixed;
     width: 100%;
@@ -89,11 +77,9 @@ h2 {
     border-bottom: 3px solid #ea17b3;
     padding: 0.5rem 1.6rem;
 }
-
 .with h2 {
     font-size: 1.6rem;
 }
-
 .with span {
     cursor: pointer;
     display: inline-block;
@@ -102,99 +88,105 @@ h2 {
     padding: 0 1rem 1rem 0;
     text-align: center;
 }
-
 p {
     margin: 0;
 }
-
 .strike {
     text-decoration: line-through;
 }
-
 .riddle {
-    border: 1px solid #d62c6f;
     margin-bottom: 160px;
-    padding: 0.5rem 2rem 2rem;
+    padding: 0.5rem 0 2rem;
     transition: all 0.25s;
 }
-
 .riddle h2 {
     color: #d62c6f;
     margin-bottom: 2rem;
 }
-
 .riddle h2.author {
     margin-bottom: 0;
     margin-top: 2rem;
 }
-
 .riddle .word {
     display: inline-block;
-    margin: 0 2rem 1rem 0;
+    margin: 0 2rem 1.4rem 0;
 }
-
 .riddle span {
-    background: #d62c6f;
-    border-color: rgba(214, 44, 111, 0.5);
+    background: rgba(214, 44, 111, 0.15);
+    border-color: rgba(214, 44, 111, 0.15);
     border-width: 1px;
     border-style: solid;
     border-right-width: 0;
-    color: white;
+    color: #333;
     cursor: pointer;
     display: inline-block;
     font-size: 1.2rem;
-    height: 2.4rem;
-    line-height: 2.4rem;
+    height: 2rem;
+    line-height: 2rem;
     margin: 0;
     text-align: center;
     text-transform: uppercase;
-    transition: all 0.25s;
-    width: 1.8rem;
+    transition: all 0.5s;
+    width: 1.6rem;
 }
-
 .riddle .punctuation {
     background: white;
     border-color: transparent;
     color: black;
     width: auto;
 }
-
 .riddle span:last-child {
     border-right-width: 1px;
 }
-
 .riddle .selected {
-    background: #fffec4;
-    border-color: yellow;
-    color: black;
+    background: #d62c6f;
+    border-color: rgba(214, 44, 111, 0.5);
+    color: white;
     font-weight: bold;
 }
-
 .riddle .switched {
     background: transparent;
+    border-color: transparent;
     color: black;
 }
-
 .solved {
     /*background-color: rgba(10, 200, 60, 0.15);*/
     border-color: white;
     padding: 0;
 }
-
+.solved span {
+  text-transform: none;
+}
+.solved .word {
+    display: inline-block;
+    margin: 0 0.6rem 1rem 0;
+}
 .solved .phrase {
     display: block;
 }
-
-.riddle .word {
-    margin: 0 1rem 1rem 0;
+.solved .phrase .word:first-child span:first-child {
+  text-transform: uppercase;
 }
-
 .solved .switched {
     background: white;
     border-color: white;
     width: auto;
 }
-
 .solved h2 {
     color: green;
+}
+@media (min-width: 768px) {
+    .main {
+        padding: 2rem;
+    }
+    .main.active {
+        padding: 10rem 2rem 2rem;
+    }
+    .active .reset {
+        top: 10rem;
+    }
+    .riddle {
+        border: 1px solid #d62c6f;
+        padding: 0.5rem 2rem 2rem;
+    }
 }
