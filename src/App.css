@@ -1,23 +1,38 @@
-html, body {
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
     font-size: 10px;
     height: 100%;
 }
+
 body {
     font-family: sans-serif;
 }
+
 .main {
     padding: 2rem;
+    transition: all 0.33s;
 }
+
+.main.active {
+    padding: 10rem 2rem 2rem;
+}
+
 h1 {
     font-size: 2rem;
     font-weight: lighter;
     margin: 0 0 2rem;
 }
+
 h2 {
     font-size: 1.75rem;
     font-weight: lighter;
     margin: 1rem 0 1rem;
 }
+
 .reset {
     background: #ea17b3;
     border: 0;
@@ -29,84 +44,98 @@ h2 {
     position: absolute;
     right: 2.6rem;
     top: 1rem;
+    transition: all 0.33s;
 }
+
+.active .reset {
+    top: 10rem;
+}
+
 .reset:hover {
     background: #aa17b3;
 }
+
 .authors {
-    display: block;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
     font-size: 14px;
     list-style-type: none;
-    height: 100vh;
     padding: 0;
-    width: 90%;
+    width: 100%;
+    column-width: 200px;
 }
+
 .authors li {
+    display: inline-block;
     line-height: 1.4;
     margin: 0 0 10px 0;
-    width: 18%;
+    vertical-align: top;
+    width: 100%;
 }
+
 .authors li:hover {
     color: #ea17b3;
     cursor: pointer;
 }
+
 .authors span {
     display: block;
 }
+
 .with {
     position: fixed;
     width: 100%;
-    height: 120px;
     background: white;
-    bottom: 0;
+    top: 0;
     left: 0;
-    border-top: 1px solid black;
-    padding: 0 3rem;
+    border-bottom: 3px solid #ea17b3;
+    padding: 0.5rem 1.6rem;
 }
+
+.with h2 {
+    font-size: 1.6rem;
+}
+
 .with span {
     cursor: pointer;
     display: inline-block;
     font-family: monospace;
-    font-size: 3rem;
+    font-size: 2.2rem;
     padding: 0 1rem 1rem 0;
     text-align: center;
 }
+
 p {
     margin: 0;
 }
+
 .strike {
     text-decoration: line-through;
 }
+
 .riddle {
-  border: 1px solid rgb(255, 100, 100);
+    border: 1px solid #d62c6f;
     margin-bottom: 160px;
     padding: 0.5rem 2rem 2rem;
-    transition: background 0.25s;
+    transition: all 0.25s;
 }
+
 .riddle h2 {
-    color: rgb(255, 100, 100);
+    color: #d62c6f;
     margin-bottom: 2rem;
 }
+
 .riddle h2.author {
-  margin-bottom: 0;
-  margin-top: 2rem;
+    margin-bottom: 0;
+    margin-top: 2rem;
 }
+
 .riddle .word {
     display: inline-block;
     margin: 0 2rem 1rem 0;
 }
+
 .riddle span {
-    background: rgb(255, 100, 100);
-    border-color: rgba(255, 100, 100, 0.5);
+    background: #d62c6f;
+    border-color: rgba(214, 44, 111, 0.5);
     border-width: 1px;
     border-style: solid;
     border-right-width: 0;
@@ -119,41 +148,53 @@ p {
     margin: 0;
     text-align: center;
     text-transform: uppercase;
+    transition: all 0.25s;
     width: 1.8rem;
 }
+
 .riddle .punctuation {
-  background: white;
-  border-color: transparent;
-  color: black;
-  width: auto;
-}
-.riddle span:last-child {
-  border-right-width: 1px;
-}
-.riddle .selected {
-    background: yellow;
+    background: white;
+    border-color: transparent;
     color: black;
+    width: auto;
 }
+
+.riddle span:last-child {
+    border-right-width: 1px;
+}
+
+.riddle .selected {
+    background: #fffec4;
+    border-color: yellow;
+    color: black;
+    font-weight: bold;
+}
+
 .riddle .switched {
     background: transparent;
     color: black;
-    transition: color 0.25s;
 }
+
 .solved {
-      /*background-color: rgba(10, 200, 60, 0.15);*/
-    border-color: rgb(10, 200, 80);
+    /*background-color: rgba(10, 200, 60, 0.15);*/
+    border-color: white;
+    padding: 0;
 }
+
 .solved .phrase {
-  display: block;
+    display: block;
 }
+
 .riddle .word {
     margin: 0 1rem 1rem 0;
 }
+
 .solved .switched {
-  background: white;
-  border-color: white;
-  width: auto;
+    background: white;
+    border-color: white;
+    width: auto;
 }
+
 .solved h2 {
     color: green;
 }

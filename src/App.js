@@ -65,6 +65,8 @@ class App extends Component {
       this.setState({authors: []});
       this.setState({play: true});
       this.selectQuote(fullName);
+
+      document.getElementsByClassName("main")[0].classList.add("active");
       // set state to alphabetized authors
   }
 
@@ -94,6 +96,7 @@ class App extends Component {
   }
 
   resetApplication() {
+    document.getElementsByClassName("main")[0].classList.remove("active");
     this.alphabetizeAuthors();
     this.setState({play: false});
     this.setState({authorLookup: ''});

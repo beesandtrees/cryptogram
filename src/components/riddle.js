@@ -80,7 +80,7 @@ class Riddle extends Component {
   }
 
   renderEncryptedRiddle() {
-    let allSwitched = document.getElementsByClassName("switched");
+    let allSwitched = document.getElementsByClassName("letter");
     let encryptedRiddle = [];
     for (let i = 0; i < allSwitched.length; i++) {
         encryptedRiddle.push(allSwitched[i].innerHTML);
@@ -141,10 +141,11 @@ class Riddle extends Component {
         for(let nw = 0; nw < current.length; nw++) {
           let isPunctuation = alphabet.indexOf(current[nw].toUpperCase());
           let newLetter = '';
+          let currentClass = "letter " + current[nw];
           if(isPunctuation >= 0) {
-            newLetter = <span onClick={() => this.selectLetter(current[nw])} key={nw} data-letter={current[nw]} className={current[nw]}>{current[nw]}</span>;
+            newLetter = <span onClick={() => this.selectLetter(current[nw])} key={nw} data-letter={current[nw]} className={currentClass}>{current[nw]}</span>;
           } else {
-            newLetter = <span onClick={() => this.selectLetter(current[nw])} key={nw} data-letter={current[nw]} className="punctuation">{current[nw]}</span>;
+            newLetter = <span onClick={() => this.selectLetter(current[nw])} key={nw} data-letter={current[nw]} className="letter punctuation">{current[nw]}</span>;
           }
           newWord.push(newLetter);
         }
