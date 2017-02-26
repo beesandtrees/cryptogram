@@ -1,24 +1,45 @@
+@fontface {
+    font-family: 'Space mono', monospace;
+    src: url('https://fonts.googleapis.com/css?family=Space+Mono')
+}
 * {
     box-sizing: border-box;
 }
 html, body {
     font-size: 10px;
     height: 100%;
+    margin: 0;
 }
 body {
-    font-family: sans-serif;
-}
-.main {
-    padding: 2rem 1rem;
-    transition: all 0.33s;
-}
-.main.active {
-    padding: 16rem 1rem 2rem;
+    font-family: 'Space mono', monospace;
+    letter-spacing: 6px;
 }
 h1 {
-    font-size: 2rem;
+    background-color: #0379BE;
+    color: white;
+    display: block;
+    font-size: 1.8rem;
     font-weight: lighter;
-    margin: 0 0 2rem;
+    height: 46px;
+    left: 0;
+    margin: 0 0 4rem;
+    padding: 2rem 2rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+h1:after {
+    display: block;
+    content: '';
+    width: 0;
+    height: 0;
+    left: 0;
+    border-left: 0 solid transparent;
+    border-right: 100vw solid transparent;
+    border-top: 30px solid #0379BE;
+    position: absolute;
+    top: 46px;
 }
 h2 {
     font-size: 1.75rem;
@@ -33,15 +54,15 @@ h2 {
     cursor: pointer;
     font-size: 1.4rem;
     opacity: 0;
-    padding: 0.2rem 1rem;
+    padding: 0.2rem 1rem 0.4rem;
     position: fixed;
     right: 1rem;
-    top: 1rem;
+    top: 0;
     transition: all 0.33s;
 }
 .active .reset {
     opacity: 1;
-    top: 1rem;
+    top: 1.2rem;
     z-index: 2;
 }
 .reset:hover {
@@ -50,12 +71,14 @@ h2 {
 .authors {
     font-size: 14px;
     list-style-type: none;
-    padding: 0;
+    margin-top: 100px;
+    padding: 0 3rem;
     width: 100%;
     column-width: 200px;
 }
 .authors li {
     display: inline-block;
+    letter-spacing: 0;
     line-height: 1.4;
     margin: 0 0 10px 0;
     vertical-align: top;
@@ -69,35 +92,64 @@ h2 {
     display: block;
 }
 .with {
+    background-color: #28BCEE;
+    color: white;
+    font-size: 10.5vh;
+    height: 100vh;
+    padding: 6rem 3rem 1rem 3rem;
     position: fixed;
-    width: 100%;
-    background: white;
+    right: 0;
     top: 0;
-    left: 0;
-    border-bottom: 3px solid #ea17b3;
-    padding: 0.5rem 1.6rem;
+    width: 38%;
+}
+.with:before {
+    border-top: 100vh solid transparent;
+    border-bottom: 0 solid transparent;
+    border-right: 38vw solid #369FDC;
+    content: '';
+    display: block;
+    height: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+    z-index: 1;
 }
 .with h2 {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
+    margin: 1rem 0 2rem;
 }
 .with span {
     cursor: pointer;
     display: inline-block;
-    font-family: monospace;
-    font-size: 2.2rem;
-    padding: 0 2rem 1rem 0;
+    padding: 0 0 1rem 0;
+    position: relative;
     text-align: center;
+    width: auto;
+    z-index: 3;
 }
 p {
     margin: 0;
 }
 .strike {
-    text-decoration: line-through;
+    opacity: 0.6;
+}
+.strike:after {
+  background-color: #009FDE;
+  content: '';
+  display: block;
+  height: 33px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 3px;
+  transform: rotate(30deg);
 }
 .riddle {
-    margin-bottom: 160px;
-    padding: 0.5rem 0 2rem;
+    margin-top: 100px;
+    padding: 0 2rem;
     transition: all 0.25s;
+    width: 62%;
 }
 .riddle h2 {
     color: #d62c6f;
@@ -112,11 +164,11 @@ p {
     margin: 0 2.4rem 1.4rem 0;
 }
 .riddle span {
-    background: rgba(0, 0, 0, 0.075);
-    border-color: rgba(0, 0, 0, 0.15);
+    background: #9B9B9B;
+    border-color: white;
     border-width: 1px;
     border-style: solid;
-    color: #333;
+    color: white;
     cursor: pointer;
     display: inline-block;
     font-size: 1.6rem;
@@ -124,6 +176,7 @@ p {
     line-height: 1.9;
     margin: 0;
     min-width: 3.2rem;
+    padding-left: 6px;
     text-align: center;
     text-transform: uppercase;
     transition: all 0.66s;
@@ -140,10 +193,9 @@ p {
     border-right-width: 1px;
 }
 .riddle .selected {
-    background: #d62c6f;
-    border-color: rgba(214, 44, 111, 0.5);
+    background: #FA008F;
+    border-color: white;
     color: white;
-    font-weight: bold;
 }
 .riddle .switched {
     background: transparent;
@@ -153,41 +205,30 @@ p {
 }
 .solved {
     border-color: white;
-    padding: 0;
 }
 .solved span {
-  text-transform: none;
+    min-width: 1px;
+    text-transform: none;
 }
 .solved .word {
     display: inline-block;
-    margin: 0 0.6rem 1rem 0;
 }
 .solved .phrase {
     display: block;
 }
 .solved .phrase .word:first-child span:first-child {
-  text-transform: uppercase;
+    text-transform: uppercase;
 }
 .solved .switched {
     background: white;
     border-color: white;
-    min-width: 1px;
 }
 .solved h2 {
     color: green;
 }
-@media (min-width: 768px) {
-    .main {
-        padding: 2rem;
-    }
-    .main.active {
-        padding: 10rem 2rem 2rem;
-    }
-    .active .reset {
-        top: 10rem;
-    }
-    .riddle {
-        border: 1px solid #d62c6f;
-        padding: 0.5rem 2rem 2rem;
-    }
+@media(max-width: 480px) {
+  .with {
+      font-size: 6vh;
+      padding: 6rem 2rem 1rem 2rem;
+  }
 }

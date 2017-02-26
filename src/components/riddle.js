@@ -96,7 +96,7 @@ class Riddle extends Component {
     for (let i = 0; i < allLetters.length; i++) {
         let trueLetter = allLetters[i].innerHTML;
         console.log(trueLetter);
-    }    
+    }
   }
 
   replaceLetter(letter, removeStrike) {
@@ -204,12 +204,11 @@ class Riddle extends Component {
     }
     return  <div>
         <div className="riddle">
-          <h2>Decrypt Quote Section</h2>
           {this.state.riddle}
           <h2 className="author">&mdash; {this.props.author}</h2>
         </div>
         <div className="with">
-          <h2>Replace Selected With:</h2>
+          <h2>Replace Letter With:</h2>
             {alphabet.map((letter, i) => (
               <span data-replace={letter} onClick={() => this.replaceLetter(letter.toLowerCase(), false)} key={letter}>{letter}</span>
             ))}
