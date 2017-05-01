@@ -1,1 +1,1 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+React App that uses the [PoetryDB API](https://github.com/thundercomb/poetrydb), but from Mashape because there are CORS issues with the regular API.
