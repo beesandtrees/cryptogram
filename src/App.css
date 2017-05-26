@@ -1,6 +1,6 @@
 @fontface {
-    font-family: 'Space mono', monospace;
-    src: url('https://fonts.googleapis.com/css?family=Space+Mono')
+    font-family: 'PT mono', monospace;
+    src: url('https://fonts.googleapis.com/css?family=Cutive+Mono')
 }
 * {
     box-sizing: border-box;
@@ -11,7 +11,7 @@ html, body {
     margin: 0;
 }
 body {
-    font-family: 'Space mono', monospace;
+    font-family: 'Cutive mono', monospace;
     letter-spacing: 6px;
 }
 h1 {
@@ -135,17 +135,19 @@ p {
     opacity: 0.6;
 }
 .strike:after {
-  background-color: #009FDE;
+  background-color: white;
+  border-radius: 6px;
   content: '';
   display: block;
-  height: 33px;
+  height: 10vh;
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 6px;
+  left: 14px;
   width: 3px;
   transform: rotate(30deg);
 }
 .riddle {
+  font-weight: bold;
     margin-top: 100px;
     padding: 0 2rem;
     transition: all 0.25s;
