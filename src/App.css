@@ -1,143 +1,145 @@
-@fontface {
-    font-family: 'PT mono', monospace;
-    src: url('https://fonts.googleapis.com/css?family=Cutive+Mono')
-}
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-html, body {
-    font-size: 10px;
-    height: 100%;
-    margin: 0;
+html,
+body {
+  font-size: 10px;
+  height: 100%;
+  margin: 0;
 }
 body {
-    font-family: 'Cutive mono', monospace;
-    letter-spacing: 6px;
+  font-family: "Cutive mono", monospace;
+  letter-spacing: 6px;
 }
 h1 {
-    background-color: #0379BE;
-    color: white;
-    display: block;
-    font-size: 1.8rem;
-    font-weight: lighter;
-    height: 46px;
-    left: 0;
-    margin: 0 0 4rem;
-    padding: 2rem 2rem 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 2;
+  background-color: #0379be;
+  color: white;
+  display: block;
+  font-size: 1.8rem;
+  font-weight: lighter;
+  height: 46px;
+  left: 0;
+  margin: 0 0 4rem;
+  padding: 2rem 2rem 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
 }
 h1:after {
-    display: block;
-    content: '';
-    width: 0;
-    height: 0;
-    left: 0;
-    border-left: 0 solid transparent;
-    border-right: 100vw solid transparent;
-    border-top: 30px solid #0379BE;
-    position: absolute;
-    top: 46px;
+  display: block;
+  content: "";
+  width: 0;
+  height: 0;
+  left: 0;
+  border-left: 0 solid transparent;
+  border-right: 100vw solid transparent;
+  border-top: 30px solid #0379be;
+  position: absolute;
+  top: 46px;
 }
 h2 {
-    font-size: 1.75rem;
-    font-weight: lighter;
-    margin: 1rem 0 1rem;
+  font-size: 1.75rem;
+  font-weight: lighter;
+  margin: 1rem 0 1rem;
 }
 .reset {
-    background: #ea17b3;
-    border: 0;
-    border-radius: 3px;
-    color: white;
-    cursor: pointer;
-    font-size: 1.4rem;
-    opacity: 0;
-    padding: 0.2rem 1rem 0.4rem;
-    position: fixed;
-    right: 1rem;
-    top: 0;
-    transition: all 0.33s;
+  background: #ea17b3;
+  border: 0;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  font-size: 1.4rem;
+  opacity: 0;
+  padding: 0.2rem 1rem 0.4rem;
+  position: fixed;
+  right: 1rem;
+  top: 0;
+  transition: all 0.33s;
 }
 .active .reset {
-    opacity: 1;
-    top: 1.2rem;
-    z-index: 2;
+  opacity: 1;
+  top: 1.2rem;
+  z-index: 2;
 }
 .reset:hover {
-    background: #aa17b3;
+  background: #aa17b3;
 }
 .authors {
-    font-size: 14px;
-    list-style-type: none;
-    margin-top: 100px;
-    padding: 0 3rem;
-    width: 100%;
-    column-width: 200px;
+  font-size: 14px;
+  list-style-type: none;
+  margin-top: 100px;
+  padding: 0 3rem;
+  width: 100%;
+  column-width: 200px;
 }
 .authors li {
-    display: inline-block;
-    letter-spacing: 0;
-    line-height: 1.4;
-    margin: 0 0 10px 0;
-    vertical-align: top;
-    width: 100%;
+  display: inline-block;
+  letter-spacing: 0;
+  line-height: 1.4;
+  margin: 0 0 10px 0;
+  vertical-align: top;
+  width: 100%;
 }
 .authors li:hover {
-    color: #ea17b3;
-    cursor: pointer;
+  color: #ea17b3;
+  cursor: pointer;
 }
 .authors span {
-    display: block;
+  display: block;
 }
 .with {
-    background-color: #28BCEE;
-    color: white;
-    font-size: 10.5vh;
-    height: 100vh;
-    padding: 6rem 3rem 1rem 3rem;
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 38%;
+  background-color: #28bcee;
+  color: white;
+  font-size: 7.5vh;
+  height: 100vh;
+  line-height: 10vh;
+  padding: 6rem 3rem 1rem 3rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 25%;
 }
 .with:before {
-    border-top: 100vh solid transparent;
-    border-bottom: 0 solid transparent;
-    border-right: 38vw solid #369FDC;
-    content: '';
-    display: block;
-    height: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 0;
-    z-index: 1;
+  border-top: 100vh solid transparent;
+  border-bottom: 0 solid transparent;
+  border-right: 38vw solid #369fdc;
+  content: "";
+  display: block;
+  height: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0;
 }
 .with h2 {
-    font-size: 1.2rem;
-    margin: 1rem 0 2rem;
+  font-size: 1.2rem;
+  line-height: 1;
+  margin: 1rem 0 2rem;
 }
 .with span {
-    cursor: pointer;
-    display: inline-block;
-    padding: 0 0 1rem 0;
-    position: relative;
-    text-align: center;
-    width: auto;
-    z-index: 3;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 0 1rem 0;
+  position: relative;
+  text-align: center;
+  width: auto;
+  z-index: 3;
+}
+.with .alphabet {
+  height: calc(100vh - 120px);
+  overflow: auto;
 }
 p {
-    margin: 0;
+  margin: 0;
 }
 .strike {
-    opacity: 0.6;
+  opacity: 0.6;
 }
 .strike:after {
   background-color: white;
   border-radius: 6px;
-  content: '';
+  content: "";
   display: block;
   height: 10vh;
   position: absolute;
@@ -148,89 +150,90 @@ p {
 }
 .riddle {
   font-weight: bold;
-    margin-top: 100px;
-    padding: 0 2rem;
-    transition: all 0.25s;
-    width: 62%;
+  margin-top: 100px;
+  padding: 0 2rem;
+  position: relative;
+  transition: all 0.25s;
+  width: 75%;
 }
 .riddle h2 {
-    color: #d62c6f;
-    margin-bottom: 2rem;
+  color: #d62c6f;
+  margin-bottom: 2rem;
 }
 .riddle h2.author {
-    margin-bottom: 0;
-    margin-top: 2rem;
+  margin-bottom: 0;
+  margin-top: 2rem;
 }
 .riddle .word {
-    display: inline-block;
-    margin: 0 2.4rem 1.4rem 0;
+  display: inline-block;
+  margin: 0 2.4rem 1.4rem 0;
 }
 .riddle span {
-    background: #9B9B9B;
-    border-color: white;
-    border-width: 1px;
-    border-style: solid;
-    color: white;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 1.6rem;
-    height: 3.2rem;
-    line-height: 1.9;
-    margin: 0;
-    min-width: 3.2rem;
-    padding-left: 6px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: all 0.66s;
-    width: auto;
+  background: #9b9b9b;
+  border-color: white;
+  border-width: 1px;
+  border-style: solid;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 2.2rem;
+  height: 3.4rem;
+  line-height: 1.4;
+  margin: 0;
+  min-width: 3.2rem;
+  padding-left: 6px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.66s;
+  width: 2.4rem;
 }
 .riddle .punctuation {
-    background: white;
-    border-color: transparent;
-    color: black;
-    min-width: 1px;
-    width: auto;
+  background: white;
+  border-color: transparent;
+  color: black;
+  min-width: 1px;
+  width: auto;
 }
 .riddle span:last-child {
-    border-right-width: 1px;
+  border-right-width: 1px;
 }
 .riddle .selected {
-    background: #FA008F;
-    border-color: white;
-    color: white;
+  background: #fa008f;
+  border-color: white;
+  color: white;
 }
 .riddle .switched {
-    background: transparent;
-    border-color: transparent;
-    border-bottom: 1px solid black;
-    color: black;
+  background: transparent;
+  border-color: transparent;
+  border-bottom: 1px solid black;
+  color: black;
 }
 .solved {
-    border-color: white;
+  border-color: white;
 }
 .solved span {
-    min-width: 1px;
-    text-transform: none;
+  min-width: 1px;
+  text-transform: none;
 }
 .solved .word {
-    display: inline-block;
+  display: inline-block;
 }
 .solved .phrase {
-    display: block;
+  display: block;
 }
 .solved .phrase .word:first-child span:first-child {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 .solved .switched {
-    background: white;
-    border-color: white;
+  background: white;
+  border-color: white;
 }
 .solved h2 {
-    color: green;
+  color: green;
 }
-@media(max-width: 480px) {
+@media (max-width: 480px) {
   .with {
-      font-size: 6vh;
-      padding: 6rem 2rem 1rem 2rem;
+    font-size: 6vh;
+    padding: 6rem 2rem 1rem 2rem;
   }
 }
