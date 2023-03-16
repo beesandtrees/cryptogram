@@ -228,6 +228,7 @@ p {
 .solved .switched {
   background: white;
   border-color: white;
+  text-transform: uppercase;
 }
 .solved h2 {
   color: green;
