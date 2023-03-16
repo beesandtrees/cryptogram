@@ -168,6 +168,9 @@ p {
   display: inline-block;
   margin: 0 2.4rem 1.4rem 0;
 }
+.riddle .phrase {
+  margin-bottom: 12px;
+}
 .riddle span {
   background: #9b9b9b;
   border-color: white;
@@ -235,5 +238,9 @@ p {
   .with {
     font-size: 6vh;
     padding: 6rem 2rem 1rem 2rem;
+  }
+
+  .with span {
+    padding: 0 0 6px 0;
   }
 }
