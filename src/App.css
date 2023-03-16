@@ -234,6 +234,7 @@ p {
 .solved h2 {
   color: green;
 }
+
 @media (max-width: 480px) {
   .with {
     font-size: 6vh;
