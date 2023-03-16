@@ -18,7 +18,8 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/cryptogram",
+  "scope": "/cryptogram/",
+  "start_url": "/cryptogram/",
   "display": "fullscreen",
   "theme_color": "#000000",
   "background_color": "#ffffff"
