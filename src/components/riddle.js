@@ -3,7 +3,7 @@ import { alphabet } from "../helpers/alphabet";
 
 // TODO Add Hints Button
 
-const Riddle = ({ riddle }) => {
+const Riddle = ({ category, riddle }) => {
   const [parsedRiddle, setParsedRiddle] = useState(riddle.lines);
   const [vanillaRiddle] = useState(null);
   const originalRiddle = useRef("");
@@ -243,6 +243,7 @@ const Riddle = ({ riddle }) => {
         </div>
       </div>
       <div className="riddle">
+        <h2 className="category">category: {category.toUpperCase()}</h2>
         {parsedRiddle}
         <h2 className="author">&mdash; {riddle.author}</h2>
       </div>
